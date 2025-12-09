@@ -1,0 +1,53 @@
+# HoldOn Configuration File
+
+# Model Configuration
+model:
+  detector:
+    path: "models/hold_detector.pt"
+    confidence_threshold: 0.25
+    device: "auto"  # auto, cpu, cuda
+    model_size: "n"  # n, s, m, l, x
+
+# API Configuration
+api:
+  host: "0.0.0.0"
+  port: 8000
+  cors_origins: ["*"]  # Configure for production
+
+# Training Configuration
+training:
+  epochs: 100
+  batch_size: 16
+  image_size: 640
+  learning_rate: 0.01
+  patience: 20  # Early stopping
+
+# Route Analysis
+route_analysis:
+  max_reach_multiplier: 2.0  # Pixel conversion factor
+  dyno_threshold: 150  # pixels
+  technical_threshold: 80  # pixels
+  difficulty_weights:
+    hold_count: 30
+    avg_distance: 25
+    vertical_spread: 20
+    horizontal_spread: 15
+    route_structure: 10
+
+# Beta Generation
+beta:
+  max_alternatives: 3
+  reach_safety_margin: 0.9  # Use 90% of max reach
+  cost_weights:
+    distance: 1.0
+    upward_penalty: 0.5
+    large_move_penalty: 2.0
+    small_hold_penalty: 20.0
+
+# User Profile Defaults
+user_profile:
+  default_height: 170  # cm
+  default_reach: 180  # cm
+  default_skill_level: "intermediate"
+  default_style: "balanced"
+

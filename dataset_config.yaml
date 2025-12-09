@@ -1,0 +1,10 @@
+names:
+  0: start_hold
+  1: intermediate_hold
+  2: finish_hold
+  3: volume
+nc: 4
+path: /Users/rahulsmacbook/.cache/kagglehub/datasets/tomasslama/indoor-climbing-gym-hold-segmentation/versions/4
+test: test/images
+train: train/images
+val: valid/images
